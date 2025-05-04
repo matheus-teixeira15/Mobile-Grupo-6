@@ -1,0 +1,7 @@
+{
+  "name": "apk-preliminar",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
