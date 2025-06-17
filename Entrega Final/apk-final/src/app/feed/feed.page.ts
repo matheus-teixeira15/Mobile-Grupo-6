@@ -27,16 +27,20 @@ export class FeedPage implements OnInit {
     this.carregaPokemon(); // Pega os Pokémons quando o feed é aberto
   }
 
-  carregaPokemon() {
+  carregaPokemon(event?: any) {
     this.loading = true;
-    this.pokeapi.lista_de_pokemon_aleatórios(20).subscribe(data => {
-      this.pokemons = data; // Solicita 20 Pokémons e os armazena em pokemons
+    this.pokeapi.lista_de_pokemon_aleatórios(20).subscribe(data => { // Solicita 20 Pokémons e os armazena em pokemons
+      this.pokemons = data;
       this.loading = false;
+
+      if (event) {
+        event.target.complete(); // Fecha o ícone de refresh
+      }
     });
   }
 
-  refresh() {
-    this.carregaPokemon(); // Se o botão de refresh for apertado, pega novos Pokémons da API
+  refresh(event: any) {
+    this.carregaPokemon(event); // Se o usuário arrastar a tela pra baixo, ativa o refresh e pega novos Pokémons da API;
   }
 
 }

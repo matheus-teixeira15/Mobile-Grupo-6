@@ -20,4 +20,8 @@ export class PokeapiService {
     const requests = randomIds.map(id => this.pegar_pokemon_por_id(id)); // A função map aplica a função pegar_pokemon_por_id em cada ID da lista
     return forkJoin(requests); // Retorna os resultados
   }
+
+  pesquisar_pokemon_por_nome(nome: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}${nome.toLowerCase()}`); // Usa o nome inserido na barra de pesquisa para pegar um Pokémon da API
+  }
 }
