@@ -1,7 +1,44 @@
 <ion-content class="background" [fullscreen]="true">
+  
+  <div id="overlay" *ngIf="aviso_login">
 
-  <div id="voltarContainer">
-    <img id="voltar" src="../../assets/imgs/arrow.png" (click)=voltar()>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Calma aí!</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        Essa é uma funcionalidade exclusiva para usuários logados!
+      </ion-card-content>
+
+      <ion-button (click)="closeAlert()">
+        Fechar
+      </ion-button>
+    </ion-card>
+
+  </div>
+
+  <div id="head">
+    <img id="voltar" src="../../assets/imgs/arrow.png" (click)="voltar()" />
+
+    <img
+      id="favorito"
+      *ngIf="!favoritado"
+      (click)="changeFav()"
+      src="../../assets/imgs/estrela.png"
+      alt=""
+    />
+    <img
+      id="favorito"
+      *ngIf="favoritado && logado"
+      (click)="changeFav()"
+      src="../../assets/imgs/estrelaFill.png"
+      alt=""
+    />
+  </div>
+
+  <div id="pokebolaContainer">
+    <img src="../../assets/imgs/fundo_pokebola.png" alt="Pokemon GIF" />
   </div>
 
   <div class="gif-container">

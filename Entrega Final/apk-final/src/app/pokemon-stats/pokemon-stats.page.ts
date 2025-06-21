@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   standalone: false
 })
 export class PokemonStatsPage implements OnInit {
- pokemon: any;
+  pokemon: any;
 
   gifUrl: string = '';
 
@@ -79,13 +79,12 @@ export class PokemonStatsPage implements OnInit {
   }
 
   private applyTypeColors(): void {
-    // Obtém o tipo em minúsculas para consistência
+
+
     const pokemonType = this.type.toLowerCase();
     
-    // Busca as cores correspondentes ou usa o default
     const colors = this.typeColors[pokemonType] || this.typeColors['default'];
     
-    // Atualiza as variáveis CSS globais
     document.documentElement.style.setProperty('--primary-color', colors.primary);
     document.documentElement.style.setProperty('--secondary-color', colors.secondary);
   }
@@ -94,6 +93,28 @@ export class PokemonStatsPage implements OnInit {
     this.pokemon = ''
     this.nome_pokemon = ''
     this.location.back()
+  }
+
+  favoritado: boolean = false
+  logado: boolean = true
+  aviso_login: boolean = false
+
+  openAlert(){
+    this.aviso_login = true
+  }
+
+  closeAlert(){
+    this.aviso_login = false
+  }
+
+  changeFav(){
+
+    if(this.logado){
+      this.favoritado = !this.favoritado
+    } else {
+      this.openAlert()
+    }
+
   }
 
   ngOnInit() {}

@@ -5,6 +5,33 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
+
+  <ion-item id="email" class="input">
+    <ion-input 
+      placeholder="Email" 
+      [(ngModel)]="email" 
+      type="email">
+    </ion-input>
+  </ion-item>
+  
+  <ion-item id="senha" class="input">
+    <ion-input
+      placeholder="Senha"
+      [(ngModel)]="password"
+      type="password"
+    ></ion-input>
+  </ion-item>
+  
+  <ion-button expand="block" (click)="isCreatingAccount ? register() : login()">
+    {{ isCreatingAccount ? 'Criar Conta' : 'Entrar' }}
+  </ion-button>
+  
+  <ion-button expand="block" fill="clear" (click)="toggleForm()">
+    {{ isCreatingAccount ? 'Já tenho conta' : 'Criar nova conta' }}
+  </ion-button>
+
+
 </ion-content>
 
 <ion-footer>
