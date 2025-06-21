@@ -21,7 +21,7 @@ export class FeedPage implements OnInit {
 
     addIcons({ create, ellipsisHorizontal, ellipsisVertical, helpCircle, personCircle, search, star });
 
-   }
+  }
 
   ngOnInit() {
     this.carregaPokemon(); // Pega os Pokémons quando o feed é aberto

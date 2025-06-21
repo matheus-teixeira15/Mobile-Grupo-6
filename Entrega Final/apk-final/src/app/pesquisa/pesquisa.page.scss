@@ -1,15 +1,17 @@
 ion-img {
   width: 80%;
   display: block;
-  margin: auto;
+  margin: 20px auto;
 }
 
 ion-searchbar {
+  font-family: rainyhearts;
   margin: 10px auto;
   width: 90%;
 }
 
 ion-card {
+  font-family: rainyhearts;
   margin: 15px auto;
   width: 75%;
   padding: 10px;
@@ -24,14 +26,13 @@ ion-card img {
 }
 
 ion-tab-button.tab-selected {
-  background: #e83224; 
-  margin: 4px;
+  color: var(--ion-color-primary); /* Ou direto: color: blue; */
 }
 
 ion-tab-button.tab-selected ion-icon {
-  color: #fefefe;
+  color: var(--ion-color-primary);
 }
 
 ion-tab-button.tab-selected ion-label {
-  color: #fefefe;
+  color: var(--ion-color-primary);
 }

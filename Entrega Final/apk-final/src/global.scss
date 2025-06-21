@@ -35,3 +35,14 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+$font-path: "assets/fonts";
+
+    @font-face {
+      font-family: 'rainyhearts';
+      src: url($font-path + '/rainyhearts.ttf') format('truetype');
+    }
+
+html, body, ion-app {
+  font-family: 'rainyhearts';
+}

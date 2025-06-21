@@ -1,15 +1,24 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-img src="/assets/imgs/pokemon_logo.png"></ion-img>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <h1>Página Inicial</h1>
+<ion-content [fullscreen]="true">
 
-  <ion-button expand="full" (click)="irParaFeed()">
-    Ir para Feed
+  <ion-button class="blink_me" fill="clear" routerLink="/feed">
+    APERTE PARA ENTRAR
   </ion-button>
 </ion-content>
+
+<ion-footer [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title class="rodape">
+      &#64;2025 GRUPO 06 UNISUAM<br>
+    </ion-title>
+    <ion-text class="rodape">
+      POR JUAN DE SOUZA, LUAN AZEVEDO <br> 
+      E MATHEUS TEIXEIRA
+    </ion-text>
+  </ion-toolbar>
+</ion-footer>
