@@ -15,7 +15,7 @@
   </ion-refresher>
 
   <ion-list *ngIf="!loading"> 
-    <ion-card *ngFor="let pokemon of pokemons"> <!-- Cria um ion-item pra cada pokémon obtido da API -->
+    <ion-card *ngFor="let pokemon of pokemons" (click)="verStats(pokemon)"> <!-- Cria um ion-item pra cada pokémon obtido da API -->
       <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}" loading="lazy"/>
       <ion-card-header>
         <ion-card-title>

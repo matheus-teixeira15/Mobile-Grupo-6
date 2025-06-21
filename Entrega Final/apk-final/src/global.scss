@@ -1,3 +1,13 @@
+@use  './theme/fonts';
+
+:root {
+    --ion-font-family: 'Gotham', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --ion-font-family: 'GothamNumber', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --ion-font-family: 'rainyhearts', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --primary-color: #68A090;
+    --secondary-color: #4E887A;
+}
+
 /*
  * App Global CSS
  * ----------------------------------------------------------------------------
@@ -36,13 +46,13 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
 
-$font-path: "assets/fonts";
+// $font-path: "assets/fonts";
 
-    @font-face {
-      font-family: 'rainyhearts';
-      src: url($font-path + '/rainyhearts.ttf') format('truetype');
-    }
+//     @font-face {
+//       font-family: 'rainyhearts';
+//       src: url($font-path + '/rainyhearts.ttf') format('truetype');
+//     }
 
-html, body, ion-app {
-  font-family: 'rainyhearts';
-}
+// html, body, ion-app {
+//   font-family: 'rainyhearts';
+// }

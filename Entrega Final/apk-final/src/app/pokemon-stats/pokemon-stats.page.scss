@@ -1,0 +1,139 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#voltar{
+  width: 35px;
+  filter: drop-shadow(0px 4px 4px #00000040);
+  margin: 10px 0px 0px 15px;
+}
+
+#voltar:active{
+  filter: grayscale(1) brightness(0.7);
+}
+
+#voltar:hover {
+  transform: scale(1.1);
+}
+
+.gif-container {
+  position: absolute;
+  top: calc((100% - 400px) / 2);
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 5;
+}
+
+.gif-container img {
+  width: 150px;
+  transform: translate(0, -50%);
+}
+
+.background {
+  // --background: #f4d23c;
+  --background: var(--primary-color);
+  position: relative;
+}
+
+.backgroundStats {
+  background-color: #ffffff;
+  width: 100%;
+  height: 400px;
+  border-radius: 47px 47px 0px 0px;
+
+  position: absolute;
+  bottom: 0;
+  box-shadow: 0px 0px 20px #0000009e;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pokemon-name {
+  font-size: 2rem;
+  font-family: "Gotham";
+  text-align: center;
+  color: black;
+  margin: 30px 0px 20px 0px;
+}
+
+#dimensoes {
+  font-size: 1.45rem;
+  font-family: "Gotham";
+  font-weight: bolder;
+  color: #323232;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+}
+
+#dimensoes li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin: 0px 0px 35px 0px;
+}
+
+#typeResult {
+  font-size: 17px;
+  color: var(--secondary-color);
+}
+
+.dimensionNumber {
+  font-family: "GothamNumber";
+  color: #323232;
+  font-size: 14px;
+}
+
+#statsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.statBar {
+  color: #323232;
+  font-family: "Gotham";
+  font-size: 1.2rem;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 5px;
+}
+
+.labelStat {
+  text-align: center;
+  color: #323232;
+  font-size: 1rem;
+  width: 78px;
+}
+
+.bar {
+  min-width: 65vw;
+  min-height: 8px;
+
+  box-shadow: 0px 4px 4px #00000040;
+}
+
+.statBackground {
+  position: relative;
+  background-color: #bfbfbf;
+  min-height: 8px;
+  min-width: 100%;
+  border-radius: 100px;
+}
+
+.statFill {
+  // background-color: #d9b514;
+  background-color: var(--secondary-color);
+  width: 0%;
+  border-radius: 100px;
+  min-height: 8px;
+}
