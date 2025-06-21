@@ -4,12 +4,29 @@
     <ion-searchbar
       search-icon="search"
       show-clear-button="always"
-      placeholder="Pesquisar pokémon...">
+      placeholder="Pesquisar pokémon">
     </ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <p>Olá</p>
 </ion-content>
 
+<ion-footer>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button routerLink="/feed" routerLinkActive="tab-selected">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Feed</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button routerLink="/pesquisa" routerLinkActive="tab-selected">
+      <ion-icon name="search"></ion-icon>
+      <ion-label>Pesquisa</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button routerLink="/conta" routerLinkActive="tab-selected">
+      <ion-icon name="person"></ion-icon>
+      <ion-label>Conta</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

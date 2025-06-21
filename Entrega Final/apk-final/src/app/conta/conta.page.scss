@@ -1,0 +1,18 @@
+ion-img {
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+
+ion-tab-button.tab-selected {
+  background: #2f55b6; 
+  margin: 4px;
+}
+
+ion-tab-button.tab-selected ion-icon {
+  color: #fffe56;
+}
+
+ion-tab-button.tab-selected ion-label {
+  color: #fffe56;
+}

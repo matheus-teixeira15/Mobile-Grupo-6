@@ -1,0 +1,37 @@
+ion-img {
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+
+ion-searchbar {
+  margin: 10px auto;
+  width: 90%;
+}
+
+ion-card {
+  margin: 15px auto;
+  width: 75%;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+ion-card img {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: auto;
+}
+
+ion-tab-button.tab-selected {
+  background: #e83224; 
+  margin: 4px;
+}
+
+ion-tab-button.tab-selected ion-icon {
+  color: #fefefe;
+}
+
+ion-tab-button.tab-selected ion-label {
+  color: #fefefe;
+}

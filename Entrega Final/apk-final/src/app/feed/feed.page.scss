@@ -1,0 +1,35 @@
+ion-img {
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+
+ion-title {
+  margin-bottom: 25px;
+}
+
+ion-card {
+  margin: 15px auto;
+  width: 75%;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+ion-card img {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: auto;
+}
+
+ion-tab-button.tab-selected {
+  color: var(--ion-color-primary); /* Ou direto: color: blue; */
+}
+
+ion-tab-button.tab-selected ion-icon {
+  color: var(--ion-color-primary);
+}
+
+ion-tab-button.tab-selected ion-label {
+  color: var(--ion-color-primary);
+}
