@@ -35,6 +35,7 @@ ion-card-title{
 }
 
 ion-card-content{
+  font-size: 1.3rem;
   text-align: center;
 }
 
@@ -98,7 +99,7 @@ ion-button{
   height: auto;
   max-width: 100%;
   object-fit: contain;
-  
+
   image-rendering: high-quality;
   transform: translateZ(0) translate(0, -50%);
   image-rendering: auto;

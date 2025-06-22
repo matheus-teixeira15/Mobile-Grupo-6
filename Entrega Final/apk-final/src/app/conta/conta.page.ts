@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from '@angular/fire/auth';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-conta',
@@ -13,23 +14,25 @@ export class ContaPage implements OnInit {
   password: string = '';
   isCreatingAccount: boolean = false;
 
-  constructor(private auth: Auth, private router: Router) {}
-  
-  
+  isLoggedIn: boolean = false;
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+
   async login() {
     try {
-      await signInWithEmailAndPassword(this.auth, this.email, this.password);
-      // this.router.navigateByUrl('/home');
+      await this.authService.login(this.email, this.password);
+
+      this.isLoggedIn = true;
 
     } catch (error) {
       alert('Erro no login: ' + (error as any).message);
     }
   }
-  
-  
+
   async register() {
     try {
-      await createUserWithEmailAndPassword(this.auth, this.email, this.password);
+      await this.authService.register(this.email, this.password);
       alert('Usuário criado com sucesso!');
       this.isCreatingAccount = false;
       this.email = '';
@@ -39,14 +42,21 @@ export class ContaPage implements OnInit {
     }
   }
 
+  async logout() {
+    try {
+      await this.authService.logout();
+      this.isLoggedIn = false;
+    } catch (error) {
+      alert('Erro ao sair: ' + (error as any).message);
+    }
+  }
 
-    toggleForm() {
+  toggleForm() {
     this.isCreatingAccount = !this.isCreatingAccount;
   }
-  
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
+
 
 }
 

@@ -4,17 +4,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" *ngIf="!isLoggedIn">
 
 
   <ion-item id="email" class="input">
-    <ion-input 
-      placeholder="Email" 
-      [(ngModel)]="email" 
+    <ion-input
+      placeholder="Email"
+      [(ngModel)]="email"
       type="email">
     </ion-input>
   </ion-item>
-  
+
   <ion-item id="senha" class="input">
     <ion-input
       placeholder="Senha"
@@ -22,16 +22,23 @@
       type="password"
     ></ion-input>
   </ion-item>
-  
+
   <ion-button expand="block" (click)="isCreatingAccount ? register() : login()">
     {{ isCreatingAccount ? 'Criar Conta' : 'Entrar' }}
   </ion-button>
-  
+
   <ion-button expand="block" fill="clear" (click)="toggleForm()">
     {{ isCreatingAccount ? 'Já tenho conta' : 'Criar nova conta' }}
   </ion-button>
 
 
+</ion-content>
+
+
+<ion-content [fullscreen]="true" *ngIf="isLoggedIn">
+  <ion-button expand="block" (click)="logout()">
+    Sair
+  </ion-button>
 </ion-content>
 
 <ion-footer>

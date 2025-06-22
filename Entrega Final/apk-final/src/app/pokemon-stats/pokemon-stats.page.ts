@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-pokemon-stats',
@@ -26,6 +27,10 @@ export class PokemonStatsPage implements OnInit {
   sd: number = 0;
   speed: number = 0;
 
+  logado: boolean = false;
+  favoritado: boolean = false;
+  aviso_login: boolean = false;
+
   private readonly typeColors: { [key: string]: { primary: string; secondary: string } } = {
     normal: { primary: '#919AA2', secondary: '#6E787E' },
     fighting: { primary: '#CE416B', secondary: '#A42A54' },
@@ -49,14 +54,14 @@ export class PokemonStatsPage implements OnInit {
     default: { primary: '#68A090', secondary: '#4E887A' },
   };
 
-  constructor(private router: Router, private location: Location) {
+  constructor(private router: Router, private location: Location, private authService: AuthService) {
     const navigation = this.router.getCurrentNavigation();
 
     if (navigation?.extras.state) {
       this.pokemon = navigation.extras.state['pokemon'] || null;
 
       this.nome_pokemon = this.pokemon['name'];
-      
+
       this.gifUrl = this.pokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default'];
 
       if(!this.gifUrl){
@@ -82,22 +87,19 @@ export class PokemonStatsPage implements OnInit {
 
 
     const pokemonType = this.type.toLowerCase();
-    
+
     const colors = this.typeColors[pokemonType] || this.typeColors['default'];
-    
+
     document.documentElement.style.setProperty('--primary-color', colors.primary);
     document.documentElement.style.setProperty('--secondary-color', colors.secondary);
   }
 
-  voltar(){
+  voltar() {
     this.pokemon = ''
     this.nome_pokemon = ''
     this.location.back()
   }
 
-  favoritado: boolean = false
-  logado: boolean = true
-  aviso_login: boolean = false
 
   openAlert(){
     this.aviso_login = true
@@ -117,6 +119,14 @@ export class PokemonStatsPage implements OnInit {
 
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+    if (this.authService.isLoggedIn()) {
+      this.logado = true;
+    } else {
+      this.logado = false;
+    }
+
+  }
 
 }
