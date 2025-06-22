@@ -23,11 +23,11 @@
     ></ion-input>
   </ion-item>
 
-  <ion-button expand="block" (click)="isCreatingAccount ? register() : login()">
+  <ion-button expand="block" class="form-button" (click)="isCreatingAccount ? register() : login()">
     {{ isCreatingAccount ? 'Criar Conta' : 'Entrar' }}
   </ion-button>
 
-  <ion-button expand="block" fill="clear" (click)="toggleForm()">
+  <ion-button expand="block" class="form-button" fill="clear" (click)="toggleForm()">
     {{ isCreatingAccount ? 'Já tenho conta' : 'Criar nova conta' }}
   </ion-button>
 
@@ -36,7 +36,7 @@
 
 
 <ion-content [fullscreen]="true" *ngIf="isLoggedIn">
-  <ion-button expand="block" (click)="logout()">
+  <ion-button class="form-button" expand="block" (click)="logout()">
     Sair
   </ion-button>
 </ion-content>

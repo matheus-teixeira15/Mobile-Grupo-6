@@ -1,17 +1,17 @@
-<ion-header [translucent]="true" class="ion-no-border">
+<ion-header [translucent]="true" class="ion-no-border" routerLink="/feed">
   <ion-toolbar>
     <ion-img src="/assets/imgs/pokemon_logo.png"></ion-img>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" routerLink="/feed">
 
-  <ion-button class="blink_me" fill="clear" routerLink="/feed">
-    APERTE PARA ENTRAR
+  <ion-button class="blink_me" fill="clear">
+    <ion-text>APERTE PARA ENTRAR</ion-text>
   </ion-button>
 </ion-content>
 
-<ion-footer [translucent]="true" class="ion-no-border">
+<ion-footer [translucent]="true" class="ion-no-border" routerLink="/feed">
   <ion-toolbar>
     <ion-title class="rodape">
       &#64;2025 GRUPO 06 UNISUAM<br>

@@ -16,15 +16,23 @@ ion-button {
   font-family: rainyhearts;
   margin: 100px auto;
   display: block;
-  font-size: 22px;
+  font-size: 25px;
   font-weight: bold;
   color: #fff;
-  text-shadow: -1px -1px 0 gray, 1px -1px 0 gray, -1px 1px 0 gray, 1px 1px 0 gray;
+
+  ion-text {
+    text-shadow: -1px -1px 0 gray, 1px -1px 0 gray, -1px 1px 0 gray, 1px 1px 0 gray;
+  }
+  
+}
+
+ion-footer {
+  margin-bottom: 30px;
 }
 
 ion-title.rodape {
   font-family: rainyhearts;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: #fff;
   text-align: center;
@@ -34,7 +42,7 @@ ion-title.rodape {
 
 ion-text.rodape {
   font-family: rainyhearts;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: #fff;
   margin: 20px auto 40px auto;
