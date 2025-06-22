@@ -7,39 +7,54 @@
 <ion-content [fullscreen]="true" *ngIf="!isLoggedIn">
 
 
-  <ion-item id="email" class="input">
-    <ion-input
-      placeholder="Email"
-      [(ngModel)]="email"
-      type="email">
-    </ion-input>
-  </ion-item>
-
-  <ion-item id="senha" class="input">
-    <ion-input
-      placeholder="Senha"
-      [(ngModel)]="password"
-      type="password"
-    ></ion-input>
-  </ion-item>
-
-  <ion-button expand="block" (click)="isCreatingAccount ? register() : login()">
-    {{ isCreatingAccount ? 'Criar Conta' : 'Entrar' }}
-  </ion-button>
-
-  <ion-button expand="block" fill="clear" (click)="toggleForm()">
-    {{ isCreatingAccount ? 'Já tenho conta' : 'Criar nova conta' }}
-  </ion-button>
+  <div id="login-container">
+    <div id="email" class="input">
+      <ion-input
+        placeholder="Email"
+        [(ngModel)]="email"
+        type="email">
+      </ion-input>
+    </div>
+    <div id="senha" class="input">
+      <ion-input
+        placeholder="Senha"
+        [(ngModel)]="password"
+        type="password"
+      ></ion-input>
+    </div>
+    <ion-button expand="block" (click)="isCreatingAccount ? register() : login()">
+      {{ isCreatingAccount ? 'Criar Conta' : 'Entrar' }}
+    </ion-button>
+    <ion-button expand="block" fill="clear" (click)="toggleForm()">
+      {{ isCreatingAccount ? 'Já tenho conta' : 'Criar nova conta' }}
+    </ion-button>
+  </div>
 
 
 </ion-content>
 
 
 <ion-content [fullscreen]="true" *ngIf="isLoggedIn">
-  <ion-button expand="block" (click)="logout()">
-    Sair
-  </ion-button>
+
+
+  <div class="margin_container">
+    <div id="user-container">
+      <ul>
+        <li><a>Meus Favoritos</a></li>
+        <li><a href="https://pokeapi.co/" target="_blank">Api Utilizada</a></li>
+        <li><a href="https://pokemon.fandom.com/wiki/Pok%C3%A9mon" target="_blank">Wiki</a></li>
+        <li><a href="https://github.com/matheus-teixeira15/Mobile-Grupo-6" target="_blank">Repositório do Projeto</a></li>
+      </ul>
+      <ion-button (click)="logout()">
+        Sair
+      </ion-button>
+    </div>
+  </div>
+
+
 </ion-content>
+
+
 
 <ion-footer>
   <ion-tab-bar slot="bottom">
