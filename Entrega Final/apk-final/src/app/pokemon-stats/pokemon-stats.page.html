@@ -1,0 +1,119 @@
+<ion-content class="background" [fullscreen]="true">
+
+  <div id="overlay" *ngIf="aviso_login">
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Calma aí!</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        Essa é uma funcionalidade exclusiva para usuários logados!
+      </ion-card-content>
+
+      <ion-button (click)="closeAlert()">
+        Fechar
+      </ion-button>
+    </ion-card>
+
+  </div>
+
+  <div id="head">
+    <img id="voltar" src="../../assets/imgs/arrow.png" (click)="voltar()" />
+
+    <img
+      id="favorito"
+      *ngIf="!favoritado"
+      (click)="addFavorito()"
+      src="../../assets/imgs/estrela.png"
+      alt=""
+    />
+    <img
+      id="favorito"
+      *ngIf="favoritado && logado"
+      (click)="removeFavorito()"
+      src="../../assets/imgs/estrelaFill.png"
+      alt=""
+    />
+  </div>
+
+  <div id="pokebolaContainer">
+    <img src="../../assets/imgs/fundo_pokebola.png" alt="Pokemon GIF" />
+  </div>
+
+  <div class="gif-container">
+    <img [src]="gifUrl" alt="Pokemon GIF" />
+  </div>
+
+  <div class="backgroundStats">
+    <ion-text class="pokemon-name">{{ nome_pokemon | capitalize }}</ion-text>
+
+    <ul id="dimensoes">
+      <li>
+        <h1>Type</h1>
+        <h2 id="typeResult">{{ type | capitalize }}</h2>
+      </li>
+
+      <li>
+        <h1>Height</h1>
+        <h2 class="dimensionNumber">{{ height }}</h2>
+      </li>
+
+      <li>
+        <h1>Weight</h1>
+        <h2 class="dimensionNumber">{{ weight }}</h2>
+      </li>
+    </ul>
+
+    <div id="statsContainer">
+      <div class="statBar">
+        <div class="labelStat">HP</div>
+        <div class="bar">
+          <div class="statBackground">
+            <div class="statFill" [style.width.%]="hp"></div>
+          </div>
+        </div>
+      </div>
+      <div class="statBar">
+        <div class="labelStat">Attack</div>
+        <div class="bar">
+          <div class="statBackground">
+            <div class="statFill" [style.width.%]="attack"></div>
+          </div>
+        </div>
+      </div>
+      <div class="statBar">
+        <div class="labelStat">Defense</div>
+        <div class="bar">
+          <div class="statBackground">
+            <div class="statFill" [style.width.%]="defense"></div>
+          </div>
+        </div>
+      </div>
+      <div class="statBar">
+        <div class="labelStat">Speed</div>
+        <div class="bar">
+          <div class="statBackground">
+            <div class="statFill" [style.width.%]="speed"></div>
+          </div>
+        </div>
+      </div>
+      <div class="statBar">
+        <div class="labelStat">SA</div>
+        <div class="bar">
+          <div class="statBackground">
+            <div class="statFill" [style.width.%]="sa"></div>
+          </div>
+        </div>
+      </div>
+      <div class="statBar">
+        <div class="labelStat">SD</div>
+        <div class="bar">
+          <div class="statBackground">
+            <div class="statFill" [style.width.%]="sd"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -22,7 +22,11 @@ const routes: Routes = [
   {
     path: 'conta',
     loadChildren: () => import('./conta/conta.module').then(m => m.ContaPageModule)
+  },  {
+    path: 'pokemon-stats',
+    loadChildren: () => import('./pokemon-stats/pokemon-stats.module').then( m => m.PokemonStatsPageModule)
   }
+
 ];
 
 
