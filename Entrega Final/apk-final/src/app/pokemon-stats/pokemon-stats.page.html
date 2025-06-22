@@ -1,5 +1,5 @@
 <ion-content class="background" [fullscreen]="true">
-  
+
   <div id="overlay" *ngIf="aviso_login">
 
     <ion-card>
@@ -24,14 +24,14 @@
     <img
       id="favorito"
       *ngIf="!favoritado"
-      (click)="changeFav()"
+      (click)="addFavorito()"
       src="../../assets/imgs/estrela.png"
       alt=""
     />
     <img
       id="favorito"
       *ngIf="favoritado && logado"
-      (click)="changeFav()"
+      (click)="removeFavorito()"
       src="../../assets/imgs/estrelaFill.png"
       alt=""
     />

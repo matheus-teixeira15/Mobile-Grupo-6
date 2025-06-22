@@ -2,6 +2,8 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { FavoritosService } from '../services/favoritos.service';
+import { doc, Firestore, getDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-pokemon-stats',
@@ -54,7 +56,12 @@ export class PokemonStatsPage implements OnInit {
     default: { primary: '#68A090', secondary: '#4E887A' },
   };
 
-  constructor(private router: Router, private location: Location, private authService: AuthService) {
+  constructor(private router: Router,
+    private location: Location,
+    private authService: AuthService,
+    private favoritosService: FavoritosService,
+    private firestore: Firestore
+  ) {
     const navigation = this.router.getCurrentNavigation();
 
     if (navigation?.extras.state) {
@@ -119,10 +126,35 @@ export class PokemonStatsPage implements OnInit {
 
   }
 
+  addFavorito() {
+    if(this.logado) {
+      this.favoritosService.addFavorito(this.nome_pokemon)
+      this.favoritado = true
+    } else {
+      this.openAlert()
+    }
+  }
+
+  removeFavorito() {
+    if(this.logado) {
+      this.favoritosService.removeFavorito(this.nome_pokemon)
+      this.favoritado = false
+    } else {
+      this.openAlert()
+    }
+  }
+
   ngOnInit() {
 
     if (this.authService.isLoggedIn()) {
       this.logado = true;
+
+      const user: any = this.authService.user();
+      const docRef = doc(this.firestore, `users/${user.email}/favoritos/${this.nome_pokemon}`)
+      getDoc(docRef).then((docSnap) => {
+        this.favoritado = docSnap.exists()
+      })
+
     } else {
       this.logado = false;
     }
