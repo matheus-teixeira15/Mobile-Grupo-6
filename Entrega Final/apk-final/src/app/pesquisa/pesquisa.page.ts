@@ -23,7 +23,7 @@ export class PesquisaPage implements OnInit {
   const nomeDigitado = input.value.trim().toLowerCase();
 
   if (!nomeDigitado) {
-    this.pokemons = [];  // Limpa a lista se o campo estiver vazio
+    this.pokemons = []; 
     return;
   }
 
