@@ -6,38 +6,47 @@ import { Router } from '@angular/router';
   selector: 'app-conta',
   templateUrl: './conta.page.html',
   styleUrls: ['./conta.page.scss'],
-  standalone: false
+  standalone: false,
 })
 export class ContaPage implements OnInit {
   email: string = '';
   password: string = '';
   isCreatingAccount: boolean = false;
 
+  loading: boolean = false;
   isLoggedIn: boolean = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
-
   async login() {
     try {
+      this.loading = true;
+
       await this.authService.login(this.email, this.password);
 
       this.isLoggedIn = true;
 
     } catch (error) {
       alert('Erro no login: ' + (error as any).message);
+    } finally {
+      this.loading = false;
     }
   }
 
   async register() {
     try {
+      this.loading = true;
+
       await this.authService.register(this.email, this.password);
       alert('Usuário criado com sucesso!');
       this.isCreatingAccount = false;
       this.email = '';
       this.password = '';
+
     } catch (error) {
       alert('Erro ao criar usuário: ' + (error as any).message);
+    } finally {
+      this.loading = false;
     }
   }
 
@@ -58,10 +67,11 @@ export class ContaPage implements OnInit {
     this.router.navigate(['/favoritos']);
   }
 
-  ngOnInit() {}
+  ionViewWillEnter() {
+    this.isLoggedIn = this.authService.isLoggedIn();
+  }
 
-
+  ngOnInit() {
+    this.isLoggedIn = this.authService.isLoggedIn();
+  }
 }
-
-
-

@@ -5,13 +5,15 @@ import { IonicModule } from '@ionic/angular';
 
 import { FeedPageRoutingModule } from './feed-routing.module';
 import { FeedPage } from './feed.page';
+import { LoadingComponent } from '../components/loading/loading.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FeedPageRoutingModule
+    FeedPageRoutingModule,
+    LoadingComponent
   ],
   declarations: [FeedPage]
 })
