@@ -1,0 +1,28 @@
+<ion-content [fullscreen]="true">
+  <div id="head">
+    <img id="voltar" src="../../assets/imgs/arrow.png" (click)="voltar()" />
+  </div>
+
+  <h1>
+    My Favorites
+  </h1>
+
+    <ion-list>
+      @for (favorito of favoritos; track favorito) {
+        <ion-card class="card-content">
+          <div (click)="verStats(favorito.nome_pokemon)" class="card-content">
+            <img [src]="favorito.url_imagem" alt="{{ favorito.nome_pokemon }}" loading="lazy"/>
+            <ion-card-header>
+              <ion-card-title>
+                {{ favorito.nome_pokemon | titlecase }}
+              </ion-card-title>
+            </ion-card-header>
+          </div>
+          <ion-button (click)="removerFavorito(favorito.nome_pokemon)">Remover</ion-button>
+        </ion-card>
+      }
+    </ion-list>
+
+</ion-content>
+
+

@@ -60,7 +60,6 @@ export class PokemonStatsPage implements OnInit {
     private location: Location,
     private authService: AuthService,
     private favoritosService: FavoritosService,
-    private firestore: Firestore
   ) {
     const navigation = this.router.getCurrentNavigation();
 
@@ -128,7 +127,7 @@ export class PokemonStatsPage implements OnInit {
 
   addFavorito() {
     if(this.logado) {
-      this.favoritosService.addFavorito(this.nome_pokemon)
+      this.favoritosService.addFavorito(this.nome_pokemon, this.gifUrl)
       this.favoritado = true
     } else {
       this.openAlert()
@@ -144,16 +143,12 @@ export class PokemonStatsPage implements OnInit {
     }
   }
 
-  ngOnInit() {
+  async ngOnInit() {
 
     if (this.authService.isLoggedIn()) {
       this.logado = true;
 
-      const user: any = this.authService.user();
-      const docRef = doc(this.firestore, `users/${user.email}/favoritos/${this.nome_pokemon}`)
-      getDoc(docRef).then((docSnap) => {
-        this.favoritado = docSnap.exists()
-      })
+      this.favoritado = await this.favoritosService.verificarFavorito(this.nome_pokemon)
 
     } else {
       this.logado = false;

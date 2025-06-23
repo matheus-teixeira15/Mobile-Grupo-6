@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 ion-img {
   width: 80%;
   display: block;
@@ -26,7 +31,7 @@ ion-tab-button {
 }
 
 ion-tab-button.tab-selected {
-  color: var(--ion-color-primary); /* Ou direto: color: blue; */
+  color: var(--ion-color-primary);
 }
 
 ion-tab-button.tab-selected ion-icon {
@@ -36,3 +41,78 @@ ion-tab-button.tab-selected ion-icon {
 ion-tab-button.tab-selected ion-label {
   color: var(--ion-color-primary);
 }
+
+ion-content {
+  position: absolute;
+  top: 35vh;
+}
+
+#login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#login-container .input{
+  width: 90%;
+  border-radius: 8px;
+}
+
+#login-container ion-button{
+  margin-top: 20px;
+  width: 70%;
+}
+
+#email{
+  margin-bottom: 15px;
+}
+
+#user-container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 20px;
+
+  width: 65%;
+  border-radius: 25px
+
+}
+
+.margin_container{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#user-container ul{
+  text-align: center;
+  list-style: none;
+  font-size: 1.3rem;
+  margin: 0px 0px 20px 0px;
+}
+
+#user-container ul li{
+  margin: 10px 0px;;
+}
+
+a {
+  text-decoration: underline;
+  color: #131313;
+}
+
+a:active{
+  text-decoration: none;
+  color: #868686;
+}
+
+ion-input {
+  --padding-start: 16px !important;
+  --padding-end: 16px !important;
+  --padding-top: 12px !important;
+  --padding-bottom: 12px !important;
+  --background: #e6e6e6;
+  --border-radius: 8px;
+}
+

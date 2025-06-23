@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PokeapiService {
   private baseUrl = 'https://pokeapi.co/api/v2/pokemon/';
@@ -12,16 +12,19 @@ export class PokeapiService {
   constructor(private http: HttpClient) {}
 
   pegar_pokemon_por_id(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}${id}`);  // Usa ID como parâmetro para pegar um Pokémon específico da API
+    return this.http.get(`${this.baseUrl}${id}`);
   }
 
   lista_de_pokemon_aleatórios(count: number): Observable<any[]> {
-    const randomIds = Array.from({ length: count }, () => Math.floor(Math.random() * 898) + 1); // Gera uma lista de IDs aleatórios usando funções de JavaScript
-    const requests = randomIds.map(id => this.pegar_pokemon_por_id(id)); // A função map aplica a função pegar_pokemon_por_id em cada ID da lista
-    return forkJoin(requests); // Retorna os resultados
+    const randomIds = Array.from(
+      { length: count },
+      () => Math.floor(Math.random() * 898) + 1
+    );
+    const requests = randomIds.map((id) => this.pegar_pokemon_por_id(id));
+    return forkJoin(requests);
   }
 
   pesquisar_pokemon_por_nome(nome: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}${nome.toLowerCase()}`); // Usa o nome inserido na barra de pesquisa para pegar um Pokémon da API
+    return this.http.get(`${this.baseUrl}${nome.toLowerCase()}`);
   }
 }
