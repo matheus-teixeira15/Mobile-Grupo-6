@@ -4,9 +4,16 @@ ion-img {
   margin: 20px auto 5px auto;
 }
 
+ion-toolbar {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: rgb(215, 215, 215);
+}
+
 ion-title {
   margin-bottom: 15px;
   font-family: rainyhearts;
+  font-size: 30px;
 }
 
 ion-card {
@@ -22,6 +29,10 @@ ion-card img {
   height: 100px;
   display: block;
   margin: auto;
+}
+
+ion-tab-button {
+  padding-bottom: 5px;
 }
 
 ion-tab-button.tab-selected {
