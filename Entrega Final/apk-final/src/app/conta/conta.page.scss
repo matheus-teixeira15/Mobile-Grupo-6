@@ -9,6 +9,27 @@ ion-img {
   margin: 20px auto;
 }
 
+ion-item.input {
+  width: 75%;
+  display: block;
+  margin: 20px auto;
+  --padding-start: 0px;
+  
+  ion-input {
+    font-size: 20px;
+  }
+}
+
+ion-button.form-button {
+  width: 75%;
+  display: block;
+  margin: 40px auto;
+}
+
+ion-tab-button {
+  padding-bottom: 5px;
+}
+
 ion-tab-button.tab-selected {
   color: var(--ion-color-primary);
 }
