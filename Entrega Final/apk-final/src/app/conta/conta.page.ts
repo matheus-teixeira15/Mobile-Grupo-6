@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-conta',
@@ -14,7 +15,7 @@ export class ContaPage implements OnInit {
 
   isLoggedIn: boolean = false;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
 
   async login() {
@@ -51,6 +52,10 @@ export class ContaPage implements OnInit {
 
   toggleForm() {
     this.isCreatingAccount = !this.isCreatingAccount;
+  }
+
+  irFavoritos() {
+    this.router.navigate(['/favoritos']);
   }
 
   ngOnInit() {}
