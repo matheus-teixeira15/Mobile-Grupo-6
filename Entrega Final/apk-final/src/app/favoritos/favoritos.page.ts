@@ -26,7 +26,12 @@ export class FavoritosPage implements OnInit {
     private toastController: ToastController
   ) {}
 
-  async ngOnInit() {
+  ngOnInit() {
+
+  }
+
+  async ionViewWillEnter() {
+    this.favoritos = [];
     const user: any = this.auth.currentUser;
 
     if (!user) {
