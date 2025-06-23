@@ -8,6 +8,7 @@ import { PokemonStatsPageRoutingModule } from './pokemon-stats-routing.module';
 
 import { PokemonStatsPage } from './pokemon-stats.page';
 import { CapitalizePipe } from '../capitalize.pipe';
+import { LoadingComponent } from '../components/loading/loading.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { CapitalizePipe } from '../capitalize.pipe';
     FormsModule,
     IonicModule,
     PokemonStatsPageRoutingModule,
-    CapitalizePipe
+    CapitalizePipe,
+    LoadingComponent
   ],
   declarations: [PokemonStatsPage]
 })

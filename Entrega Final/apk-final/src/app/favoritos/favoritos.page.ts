@@ -15,6 +15,7 @@ import { ToastController } from '@ionic/angular';
 })
 export class FavoritosPage implements OnInit {
   favoritos: any[] = [];
+  loading: boolean = false;
 
   constructor(
     private location: Location,
@@ -38,6 +39,8 @@ export class FavoritosPage implements OnInit {
       this.router.navigate(['/conta']);
     }
 
+    this.loading = true;
+
     const favoritoRef = collection(
       this.firestore,
       `users/${user.email}/favoritos`
@@ -48,8 +51,10 @@ export class FavoritosPage implements OnInit {
       const dados_pokemon: any = doc.data();
 
       this.favoritos.push(dados_pokemon);
-      console.log(this.favoritos);
     });
+
+    this.loading = false;
+
   }
 
   verStats(nome_pokemon: string) {

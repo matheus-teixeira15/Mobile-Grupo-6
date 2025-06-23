@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { FavoritosService } from '../services/favoritos.service';
-import { doc, Firestore, getDoc } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-pokemon-stats',
@@ -13,6 +12,8 @@ import { doc, Firestore, getDoc } from '@angular/fire/firestore';
 })
 export class PokemonStatsPage implements OnInit {
   pokemon: any;
+
+  loading: boolean = false;
 
   gifUrl: string = '';
 
@@ -64,6 +65,8 @@ export class PokemonStatsPage implements OnInit {
     const navigation = this.router.getCurrentNavigation();
 
     if (navigation?.extras.state) {
+      this.loading
+
       this.pokemon = navigation.extras.state['pokemon'] || null;
 
       this.nome_pokemon = this.pokemon['name'];
@@ -84,6 +87,7 @@ export class PokemonStatsPage implements OnInit {
       this.sa = (this.pokemon['stats'][3]['base_stat'] / 255) * 100;
       this.sd = (this.pokemon['stats'][4]['base_stat'] / 255) * 100;
       this.speed = (this.pokemon['stats'][5]['base_stat'] / 255) * 100;
+      this.loading = false;
     }
 
     this.applyTypeColors()
@@ -127,8 +131,12 @@ export class PokemonStatsPage implements OnInit {
 
   addFavorito() {
     if(this.logado) {
+
+      this.loading = true
       this.favoritosService.addFavorito(this.nome_pokemon, this.gifUrl)
       this.favoritado = true
+      this.loading = false
+
     } else {
       this.openAlert()
     }
@@ -136,8 +144,10 @@ export class PokemonStatsPage implements OnInit {
 
   removeFavorito() {
     if(this.logado) {
+      this.loading = true
       this.favoritosService.removeFavorito(this.nome_pokemon)
       this.favoritado = false
+      this.loading = false
     } else {
       this.openAlert()
     }
@@ -148,7 +158,9 @@ export class PokemonStatsPage implements OnInit {
     if (this.authService.isLoggedIn()) {
       this.logado = true;
 
-      this.favoritado = await this.favoritosService.verificarFavorito(this.nome_pokemon)
+      this.loading = true;
+      this.favoritado = await this.favoritosService.verificarFavorito(this.nome_pokemon);
+      this.loading = false;
 
     } else {
       this.logado = false;
